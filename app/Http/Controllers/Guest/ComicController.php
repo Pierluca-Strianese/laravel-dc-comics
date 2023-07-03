@@ -39,13 +39,13 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:5|max:250',
-            'description' => 'required|string|',
-            'thumb' => 'text|min:5|max:255',
-            'price' => 'required|min:5|max:250',
-            'series' => 'required|string|',
-            'sale_date' => 'tinyInteger|min:5|max:255',
-            'type' => 'tinyInteger|min:5|max:255',
+            'title' => 'required|string|min:5|max:50',
+            'description' => 'required|string',
+            'thumb' => 'required|string|min:5|max:255',
+            'price' => 'required|integer|min:1|max:250',
+            'series' => 'required|string|max:50',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:50',
         ]);
 
         $data = $request->all();
